@@ -1,11 +1,18 @@
 <?php 
 // Ens connectem a la base de dades	mitjançant try...catch i fent servir PDO.
-try {
-    $connexio = new PDO('mysql:host=localhost;dbname=Pt03_paras_navlani', 'root', '');
-} catch (PDOException $e) {
-    echo "Error: " . $e->getMessage();
-    echo "Error al conectarse a la base de dades!";
-
-}
+function conectar(){
+    try {
+       //conectem a la bd 
+       $connexio = new PDO('mysql:host=localhost;dbname=Pt03_paras_navlani', 'root', '');
+       $connexio->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+       return $connexio;
+       //echo "Connexio correcta!!" . "<br />";
+       
+   } catch(PDOException $e){ //
+       // mostrarem els errors
+       echo "Error al conectar a BD" . $e->getMessage();
+       
+   } 
+   }
 
 ?>
