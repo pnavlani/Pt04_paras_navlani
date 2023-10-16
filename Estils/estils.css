@@ -76,3 +76,19 @@ h1 {
 	text-decoration: none;
 	background: #399228;
 }
+
+/*barra nav Registrar o Logar-se */
+ .navbar {
+            background-color: #2580b4;
+            overflow: hidden;
+        }
+
+.navbar a {
+            float: right;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+    

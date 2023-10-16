@@ -8,6 +8,11 @@
 	<title>Practica 3</title>
 </head>
 <body>
+ <!--En aquest div mostrarem una barra en que es trobara l'opció de logar-se o enregistrar-se  -->   
+<div class="navbar">
+    <a href="logar.php">Iniciar Sessio</a>
+    <a href="registrar.php">Registrar</a>
+</div>
   <!--En aquest div guardarem els articles -->
 <div class="contenidor">
 		<h1>Articles</h1>

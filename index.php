@@ -1,5 +1,7 @@
-Autor: Paras Navlani
 <?php
+/**
+ * Autor: Paras Navlani
+ */
 require_once('Model/connexio.php');
 
 // Establim el numero de pagina en la que l'usuari es troba, si no troba cap valor, assignem la pagina 1
