@@ -19,6 +19,8 @@
         <input type="text" id="email" name="email" placeholder="Email">
         <label> Contrasenya</label>
         <input type="text" id="contrasenya" name="contrasenya" placeholder="Contrasenya">
+        <label> Torna a posar la Contrasenya</label>
+        <input type="text" id="contrasenya2" name="contrasenya2" placeholder="Contrasenya">
   
     <input type="submit" value="Registrar-se" name="registrar">
     <input type="submit" value="Tornar enrere" name="enrere">
