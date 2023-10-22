@@ -10,17 +10,32 @@
 <body>
  <!--En aquest div mostrarem una barra en que es trobara l'opció de logar-se o enregistrar-se  -->   
 <div class="navbar">
+   
     <a href="../index.php">Tancar Sessió</a> 
 </div>
   <!--En aquest div guardarem els articles -->
 <div class="contenidor">
 		<h1>Articles</h1>
+        <!--Formulari per editar articles -->
+        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <h4>En el cas de Esborrar  nomes cal posar el ID</h4>
+        <h4>En el cas d'afegir nomes s'ha de posar L'article</h4>
+        <label> ID: </label>
+        <input type="number" id="id" name="id"> 
+        <label> Article:</label>
+        <textarea type="text" id="nom" name="nom"> </textarea>
+        
+
+        <input type="submit" name="inserir" value="Inserir">
+        <input type="submit" name="modificar" value="Modificar">
+        <input type="submit" name="esborrar" value="Esborrar">
+    </form>
 		<?php foreach($articles as $article): ?>
-  <div class="article">
-    <h4><?php echo $article['id'];?></h4>
-    <p><?php echo $article['article'];?></p>
-  </div>
-<?php endforeach; ?>
+    <div class="article">
+        <h4><?php echo $article['id'];?></h4>
+        <p><?php echo $article['article'];?></p>
+    </div>
+    <?php endforeach; ?>
 
  <!--En aquest div tractarem l'estat del botó Anterior i Següent -->
 <div class="paginacio">
