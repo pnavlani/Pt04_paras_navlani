@@ -43,7 +43,7 @@ if(isset($_POST['submit'])) {
     
     }
 }
-    
-require '../Vista/registrar.vista.php';
+ 
+include '../Vista/registrar.vista.php';
 
 ?>

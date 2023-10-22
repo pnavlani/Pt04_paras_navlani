@@ -17,7 +17,7 @@
         <label> Contrasenya</label>
         <input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya">
 
-        <input type="submit" value="Inciar Sessió" name="iniciSesio">
+        <input type="submit" value="Inciar Sessió" name="submit">
         <input type="button" value="Tornar enrere"  onclick="window.location.href='../index.php'"> 
   </form>
 </div>

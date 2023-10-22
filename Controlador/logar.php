@@ -2,26 +2,39 @@
 /**
  * Autor: Paras Navlani
  */
-require_once ('../Model/connexio.php');       
+session_start();
+require_once ('../Model/connexio.php');    
 $connexio = conectar();
 
-if($_SERVER["REQUESTED_METHOD"] == "POST") {
+if(isset($_POST['submit'])) {
     $email = $_POST['email'];
     $contrasenya = $_POST['contrasenya'];
 
-    $stmt = $connexio->prepare('SELECT * FROM usuaris WHERE email = ?');
-    $stmt->execute([$email]);
-    $usuari = $stmt->fetch();
+    if( empty($email) || empty($contrasenya)) {
+        echo "Omplu els camps si us plau";
+    }  else {
+        $contrasenya = hash('md5', $contrasenya);
 
-    if($usuari && password_verify($contrasenya, $usuari['contrasenya'])) {
+        $stmt = $connexio->prepare("SELECT * FROM usuaris WHERE email = '$email'");
+        $stmt->execute();
+    if($stmt->rowCount() == 1) {
+       
+        $usuari = $stmt->fetch(PDO::FETCH_ASSOC);
         session_start();
-        $_SESSION['usuari'] = $usuari;
-        echo "S'ha iniciat la sessió";
-        header("Location: ../Vista/index.vista.php");
-    } else {
-        echo "Email o la contrasenya son incorrectes";
+        $_SESSION['id'] = $usuari['id'];
+        $_SESSION['usuari'] = $usuari['usuari'];
+        $_SESSION['email'] = $usuari['email'];
+        $_SESSION['contrasenya'] = $usuari['contrasenya'];
+
+        header('Location: usuari.php');
+    }else{
+        echo "L'usuari no existeix";
     }
-    
-    include '../Vista/logar.vista.php';
+} 
+
+
 }
+
+    include '../Vista/logar.vista.php';
+
 ?>
