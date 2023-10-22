@@ -2,7 +2,12 @@
   /**
    * Autor: Paras Navlani
    */
+
+   session_start();
+
   require_once('../Model/connexio.php');
+
+  $connexio = conectar();
   
   // Establim el numero de pagina en la que l'usuari es troba, si no troba cap valor, assignem la pagina 1
   if (isset($_GET['pagina'])) {
@@ -21,7 +26,7 @@
   //Calculem el número total de pagines que tindrà la paginació depenent dels articles que en aquest tenim 15 articles insertats en la BDD 
     $pagina = isset($_GET['pagina']) && is_numeric($_GET['pagina']) ? $_GET['pagina'] : 1;
     $iLimit = ($pagina-1)*$limit;
-    $connexio =  conectar();
+    //$connexio =  conectar();
     $stmt = $connexio->prepare("SELECT * FROM articles");
     $stmt->execute();
     $totalResultats = $stmt->rowCount();
@@ -41,6 +46,52 @@
     header('Location: localhost');
     exit;
   }
+
+//Validar en el cas d'Inserir un article
+  if(isset($_POST['inserir'])) {
+    $article = $_POST['article'];
+    if(empty($article)){
+        echo "Ompliu el camp de article";
+    }else{
+        //Aqui ja afegim l'article
+    $stmt = $connexio->prepare("INSERT INTO articles (id, article) VALUES ('$id', '$article')");
+    $stmt->execute();
+    header('Location: usuari.php');
+    }     
+  }
+
+//Validar en el cas de esborrar un article
+if (isset($_POST['esborrar'])) {
+    $id = $_POST['id'];
+
+    if(empty($id)){
+        echo'Ompliu el camp de ID';
+         
+    }else{
+        //Aqui ja esborrem l'article
+    $stmt = $connexio->prepare("DELETE FROM articles WHERE id = $id");
+    $stmt->execute();
+    header('Location: usuari.php');
+    
+    }
+}
+
+//Validar en el cas de modificar l'article
+if (isset($_POST['modificar'])) {
+    $id = $_POST['id'];
+    $article = $_POST['article'];
+    
+    if(empty($id) ||empty($article)){
+        echo 'Ompliu els dos camps';
+    }else{
+        $stmt = $connexio->prepare ("UPDATE articles SET article='$article' WHERE id=$id");
+        $stmt->execute();
+    }
+
+
+
+
+}
   
   include '../Vista/usuari.vista.php'
   ?>  
