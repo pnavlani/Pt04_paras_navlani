@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../Estils/formulari.css">
 </head>
 <body>
-    <h1 align="center">Iniciar Sessió</h1>
+    <h1>Iniciar Sessió</h1>
     <div>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 
