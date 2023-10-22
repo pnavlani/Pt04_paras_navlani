@@ -1,3 +1,4 @@
+<!-- Autor: Paras Navlani -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,12 +19,14 @@
         <label> Email</label>
         <input type="text" id="email" name="email" placeholder="Email">
         <label> Contrasenya</label>
-        <input type="text" id="contrasenya" name="contrasenya" placeholder="Contrasenya">
+        <input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya">
         <label> Torna a posar la Contrasenya</label>
-        <input type="text" id="contrasenya2" name="contrasenya2" placeholder="Contrasenya">
+        <input type="password" id="contrasenya2" name="contrasenya2" placeholder="Contrasenya">
   
     <input type="submit" value="Registrar-se" name="registrar">
-    <input type="submit" value="Tornar enrere" name="enrere">
+    <input type="button" value="Tornar enrere"  onclick="window.location.href='../index.php'"> 
+  
+  
   </form>
 </div>
 

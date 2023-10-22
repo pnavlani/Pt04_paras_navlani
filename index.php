@@ -42,6 +42,6 @@ if (!$articles) {
   exit;
 }
 
-require './Vista/index.vista.php';
+require 'Vista/index.vista.php';
 
 ?>

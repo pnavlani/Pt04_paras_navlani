@@ -15,4 +15,5 @@ function existeixUsuariBDD($usuari){
     return $usuariExistent ? true : false;
 }
 
+
 ?>

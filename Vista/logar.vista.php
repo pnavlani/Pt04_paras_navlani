@@ -1,3 +1,4 @@
+<!-- Autor: Paras Navlani -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,10 +15,10 @@
        <label> Email</label>
         <input type="text" id="email" name="email" placeholder="Email">
         <label> Contrasenya</label>
-        <input type="text" id="contrasenya" name="contrasenya" placeholder="Contrasenya">
+        <input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya">
 
         <input type="submit" value="Inciar Sessió" name="iniciSesio">
-        <input type="submit" value="Tornar Enrere" name="Enrere">
+        <input type="button" value="Tornar enrere"  onclick="window.location.href='../index.php'"> 
   </form>
 </div>
   

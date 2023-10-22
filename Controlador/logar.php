@@ -17,8 +17,16 @@ if($_SERVER["REQUESTED_METHOD"] == "POST") {
         session_start();
         $_SESSION['usuari'] = $usuari;
         echo "S'ha iniciat la sessió";
+        header("Location: ../Vista/index.vista.php");
     } else {
         echo "Email o la contrasenya son incorrectes";
     }
+
+    if(isset($_POST['enrere'])) {
+        header('Location: ../Vista/index.vista.php');
+        exit;
+    }
+
+    include '../Vista/logar.vista.php';
 }
 ?>

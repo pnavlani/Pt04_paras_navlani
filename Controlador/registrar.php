@@ -25,6 +25,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 
-
+    if(isset($_POST['enrere'])) {
+        header('Location: index.php');
+        exit;
+    }
+    
+include '../Vista/registrar.vista.php';
 }
 ?>
