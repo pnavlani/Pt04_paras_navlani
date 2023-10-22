@@ -11,8 +11,8 @@
  <!--En aquest div mostrarem una barra en que es trobara l'opció de logar-se o enregistrar-se  -->   
 <div class="navbar">
   
-    <a href="./Vista/logar.vista.php">Inicia la Sessió</a> 
-    <a href="./Vista/registrar.vista.php">Crea un compte</a> 
+    <a href="./Controlador/logar.php">Inicia la Sessió</a> 
+    <a href="./Controlador/registrar.php">Crea un compte</a> 
   
 </div>
   <!--En aquest div guardarem els articles -->

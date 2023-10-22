@@ -21,12 +21,7 @@ if($_SERVER["REQUESTED_METHOD"] == "POST") {
     } else {
         echo "Email o la contrasenya son incorrectes";
     }
-
-    if(isset($_POST['enrere'])) {
-        header('Location: ../Vista/index.vista.php');
-        exit;
-    }
-
+    
     include '../Vista/logar.vista.php';
 }
 ?>

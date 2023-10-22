@@ -21,9 +21,9 @@
         <label> Contrasenya</label>
         <input type="password" id="contrasenya" name="contrasenya" placeholder="Contrasenya">
         <label> Torna a posar la Contrasenya</label>
-        <input type="password" id="contrasenya2" name="contrasenya2" placeholder="Contrasenya">
+        <input type="password" id="contrasenya2" name="contrasenya2" placeholder="Torna a posar la contrasenya">
   
-    <input type="submit" value="Registrar-se" name="registrar">
+    <input type="submit" value="Registrar-se" name="submit">
     <input type="button" value="Tornar enrere"  onclick="window.location.href='../index.php'"> 
   
   

@@ -5,31 +5,45 @@
 require_once('../Model/connexio.php');
 require_once('../Controlador/controlador.php');
 
-if($_SERVER["REQUEST_METHOD"] == "POST") {
+$connexio = conectar();
+
+if(isset($_POST['submit'])) {
     $usuari = $_POST['usuari'];
     $email = $_POST['email'];
     $contrasenya = $_POST['contrasenya'];
-    $contrasenya = $_POST['contrasenya2'];
+    $contrasenya2 = $_POST['contrasenya2'];
 
-
-    if( $contrasenya != $contrasenya2) {
+    if(empty($usuari) || empty($email) || empty($contrasenya) || empty($contrasenya2)) {
+        echo "Omplu els camps si us plau";
+    } else if( $contrasenya != $contrasenya2) {
         echo 'Les contrasenyes no coincideixen';
     } else {
-        $contrasenya = password_hash($contrasenya, PASSWORD_DEFAULT);
-        if(existeixUsuariBDD($usuari)){
+
+        $stmt = $connexio->prepare("SELECT * FROM usuaris WHERE email = '$email'");
+        $stmt->execute();
+        $comprv = $stmt->fetch(PDO::FETCH_ASSOC); 
+        if($comprv){
             echo "L'usuari ja existeix";
+        }
+        $stmt = $connexio->prepare("SELECT * FROM usuaris WHERE usuari = '$usuari'");
+        $stmt->execute();
+        $comprv = $stmt->fetch(PDO::FETCH_ASSOC); 
+        if($comprv){
+            echo "L'usuari ja existeix";
+    
+
         } else {
-            $stmt = $connexio->prepare('INSERT INTO usuaris (usuari, email, contrasenya) VALUES (?, ?, ?)');
-            $stmt->execute([$usuari, $email, $contrasenya]);
+            $contrasenya = hash('md5', $contrasenya);
+            $stmt = $connexio->prepare("INSERT INTO usuaris (usuari, email, contrasenya) VALUES ('$usuari', '$email', '$contrasenya')");
+            $stmt->execute();
             echo "Usuari registrat amb èxit";
         }
-    }
-
-    if(isset($_POST['enrere'])) {
-        header('Location: index.php');
-        exit;
-    }
     
-include '../Vista/registrar.vista.php';
+
+    
+    }
 }
+    
+require '../Vista/registrar.vista.php';
+
 ?>
