@@ -1,4 +1,7 @@
 <?php 
+/**
+ * Autor: Paras Navlani
+ */
 // Ens connectem a la base de dades	mitjançant try...catch i fent servir PDO.
 function conectar(){
     try {

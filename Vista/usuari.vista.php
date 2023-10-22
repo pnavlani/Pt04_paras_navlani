@@ -8,7 +8,7 @@
 	<title>Practica 4- Usuari</title>
 </head>
 <body>
- <!--En aquest div mostrarem una barra en que es trobara l'opció de logar-se o enregistrar-se  -->   
+ <!--En aquest div mostrarem una barra en que es trobara l'opció de Tancar Sesssió  -->   
 <div class="navbar">
    
     <a href="../index.php">Tancar Sessió</a> 
