@@ -62,36 +62,6 @@ if(isset($_POST['submit'])) {
 
     }
 
-/*
-if(!empty($nom) && !empty($correo) && !empty($text)){
-    enviarPhpMailer($nom,$correo,$text);
-   echo
-   "<script>
-   alert('Enviat correctament');
-    </script>";
-}else{
-
-    if(empty($_POST['correo'])){
-        $errors["correo"] = "Ompliu l'adreça";
-        
-        
-    }else if( !filter_var($correo,FILTER_VALIDATE_EMAIL)){
-        $errors["correo"] = "L'adreça incorrecta, ha de haver '@' i '.' ";
-    }
-
-    if(empty($_POST['correo'])){
-        $errors["nom"] = "Ompliu el nom";
-    }
-
-    if(empty($text)){
-        $errors[] = "Ompliu el Text";
-    }
-
-    if( $contrasenya != $contrasenya2) {
-        echo 'Les contrasenyes no coincideixen';
-
-} */
- 
 include '../Vista/registrar.vista.php';
 
 ?>
